@@ -14,8 +14,9 @@ export default {
 </script>
 
 <style lang="stylus">
-body {
+html,body,#app {
   margin: 0;
+  height: 100%;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -23,5 +24,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  overflow: hidden;
 }
 </style>
