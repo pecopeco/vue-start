@@ -34,6 +34,9 @@ export default {
       let now = new Date().getTime().toString()
       this.text = window.date('Y年m月d日 H:i', now.slice(0, 10))
     }
+  },
+  mounted () {
+    this.getData()
   }
 }
 </script>

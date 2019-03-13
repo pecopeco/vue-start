@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import axios from 'axios'
+import fly from 'flyio'
 import store from './store'
 import config from './config'
 import router from './router'
@@ -12,7 +12,7 @@ Vue.config.productionTip = false
 
 Vue.prototype.$store = store
 Vue.prototype.$config = config
-Vue.prototype.$http = axios
+Vue.prototype.$http = fly
 Vue.prototype.Toast = Toast
 
 window.date = date
