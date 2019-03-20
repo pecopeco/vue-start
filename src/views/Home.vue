@@ -2,6 +2,7 @@
   .home
     .top
       img(src="@/assets/logo.png" @click="getData")
+    .about(@click="go('./about')") go about
     card(:text="text")
 </template>
 
@@ -17,22 +18,24 @@ export default {
   },
   data () {
     return {
-      text: '123'
+      text: ''
     }
   },
   methods: {
     getData () {
-      console.log('start get')
-      this.Toast('开始获取')
-      this.$store.dispatch('fetchUserInfo')
-      this.formatDate()
-      this.$http.get(this.$config.api_url + '/search').then((response) => {
-        console.log(response)
+      this.Toast('loading...')
+      this.$store.dispatch('fetchUserInfo', 'yang')
+      this.$http.get(this.$config.api_url + '/search').then((res) => {
+        console.log(res)
+        this.text = '123'
+      }).catch((err) => {
+        console.log(err)
+        this.text = this.formatDate()
       })
     },
     formatDate () {
       let now = new Date().getTime().toString()
-      this.text = window.date('Y年m月d日 H:i', now.slice(0, 10))
+      return this.date('Y年m月d日 H:i', now / 1000)
     }
   },
   mounted () {
@@ -42,8 +45,12 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import "../color"
 
 .top {
   padding-top: 20px;
+}
+.card {
+  color: theme
 }
 </style>
