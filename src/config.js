@@ -1,3 +1,5 @@
 export default {
-  api_url: 'https://xxx.com'
+  api_url: process.env.NODE_ENV !== 'production'
+  ? '/api'
+  : 'https://baidu.com'
 }
