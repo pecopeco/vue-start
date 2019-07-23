@@ -29,8 +29,7 @@ export default {
         console.log(res)
         this.text = '123'
       }).catch((err) => {
-        console.log(err)
-        this.text = this.formatDate()
+        this.checkStatus(err)
       })
     },
     formatDate () {
