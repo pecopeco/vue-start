@@ -18,7 +18,7 @@ function request (url, form, type) {
   //   orgName: 123456
   // }
   // Object.assign(compleForm, presetForm)
-  if (type === 'post' || type === 'put' || type === 'delete') {
+  if (type === 'post' || type === 'delete' || type === 'put') {
     let formData = new FormData()
     for (let key in form) {
       formData.append(key, form[key])
