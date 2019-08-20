@@ -27,7 +27,7 @@ function request (url, form, type) {
   }
   return fly.request(url, compleForm, {method: type}).then((res) => {
     if (type === 'delete' || res.status === 204) {
-      return res.text() || res.json()
+      return res.text()
     } else if (res.data.state === 'T' || res.status === 200) {
       return res.data
     } else {
