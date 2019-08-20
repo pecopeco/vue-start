@@ -18,7 +18,7 @@ function request (url, form, type) {
   //   orgName: 123456
   // }
   // Object.assign(compleForm, presetForm)
-  if (type === 'post') {
+  if (type === 'post' || type === 'put' || type === 'delete') {
     let formData = new FormData()
     for (let key in form) {
       formData.append(key, form[key])
@@ -26,7 +26,9 @@ function request (url, form, type) {
     compleForm = form
   }
   return fly.request(url, compleForm, {method: type}).then((res) => {
-    if (res.data.state === 'T') {
+    if (type === 'delete' || res.status === 204) {
+      return res.text() || res.json()
+    } else if (res.data.state === 'T' || res.status === 200) {
       return res.data
     } else {
       Toast(JSON.parse(res.data).error.msg)
@@ -58,6 +60,8 @@ function request (url, form, type) {
 
 request.get = (url, form) => request(url, form, 'get')
 request.post = (url, form) => request(url, form, 'post')
+request.delete = (url, form) => request(url, form, 'delete')
+request.put = (url, form) => request(url, form, 'put')
 
 Vue.prototype.$http = request
 

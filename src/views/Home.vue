@@ -26,7 +26,7 @@ export default {
     async getData () {
       this.Toast('loading...')
       this.$store.dispatch('fetchUserInfo', 'yang')
-      this.text = await this.$http.post(this.$config.api_url + '/search', {id: 1})
+      this.text = await this.$http.put(this.$config.api_url + '/search', {id: 1})
     }
   },
   mounted () {
