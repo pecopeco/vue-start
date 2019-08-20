@@ -2,18 +2,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
 import config from './config'
 import fly from 'flyio'
-import {date} from 'phpjs'
-import {Toast} from 'vant';
-import 'vant/lib/toast/style';
+import {Toast} from 'vant'
+import 'vant/lib/toast/style'
 
 Vue.config.productionTip = false
 
 Vue.prototype.$config = config
 Vue.prototype.Toast = Toast
-Vue.prototype.date = date
 
 function request (url, form, type) {
   let compleForm = form

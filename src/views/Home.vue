@@ -18,7 +18,8 @@ export default {
   },
   data () {
     return {
-      text: ''
+      text: '',
+      time: 1566274478
     }
   },
   methods: {
@@ -26,14 +27,11 @@ export default {
       this.Toast('loading...')
       this.$store.dispatch('fetchUserInfo', 'yang')
       this.text = await this.$http.post(this.$config.api_url + '/search', {id: 1})
-    },
-    formatDate () {
-      let now = new Date().getTime().toString()
-      return this.date('Y年m月d日 H:i', now / 1000)
     }
   },
   mounted () {
     this.getData()
+    this.time = this.formatTime(this.time, '/', '/', '', true, true)
   }
 }
 </script>
