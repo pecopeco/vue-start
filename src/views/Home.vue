@@ -22,15 +22,10 @@ export default {
     }
   },
   methods: {
-    getData () {
+    async getData () {
       this.Toast('loading...')
       this.$store.dispatch('fetchUserInfo', 'yang')
-      this.$http.get(this.$config.api_url + '/search').then((res) => {
-        console.log(res)
-        this.text = '123'
-      }).catch((err) => {
-        this.checkStatus(err)
-      })
+      this.text = await this.$http.post(this.$config.api_url + '/search', {id: 1})
     },
     formatDate () {
       let now = new Date().getTime().toString()
