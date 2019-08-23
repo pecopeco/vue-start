@@ -40,7 +40,7 @@ export default {
 @import "../color"
 
 .top {
-  padding-top: 20px;
+  padding-top: .2rem;
 }
 .card {
   color: theme

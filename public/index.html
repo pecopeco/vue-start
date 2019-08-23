@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>vue</title>
+    <script type="text/javascript">
+      (function() {
+          document.addEventListener('DOMContentLoaded', function() {
+              var html = document.documentElement;
+              var windowWidth = html.clientWidth;
+              html.style.fontSize = windowWidth / 3.2 + 'px';
+              // 等价于html.style.fontSize = windowWidth / 640 * 100 + 'px';
+          }, false);
+      })();
+    </script>
   </head>
   <body>
     <noscript>
