@@ -40,9 +40,9 @@ export default {
 @import "../color"
 
 .top {
-  padding-top: .2rem;
+  padding-top .2rem
 }
 .card {
-  color: theme
+  color theme
 }
 </style>
