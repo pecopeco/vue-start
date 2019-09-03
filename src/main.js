@@ -12,7 +12,7 @@ Vue.config.productionTip = false
 Vue.prototype.$config = config
 Vue.prototype.Toast = Toast
 
-function request (url, form, type) {
+function request (url, form = {}, type) {
   let compleForm = form
   // let presetForm = {
   //   orgName: 123456
@@ -31,7 +31,7 @@ function request (url, form, type) {
   }).then((res) => {
     if (type === 'delete' || res.status === 204) {
       return res.text()
-    } else if (res.data.state === 'T' || res.status === 200) {
+    } else if (res.data.state === 'T') {
       return res.data
     } else {
       Toast(JSON.parse(res.data).error.msg)
