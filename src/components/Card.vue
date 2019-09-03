@@ -14,6 +14,6 @@ export default {
 @import "../color"
 
 .card {
-  padding: 10px;
+  padding 10px
 }
 </style>
