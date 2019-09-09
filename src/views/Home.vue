@@ -7,12 +7,10 @@
 </template>
 
 <script>
-import mixin from '../mixin.js'
 import Card from '@/components/Card'
 
 export default {
   name: 'home',
-  mixins: [mixin],
   components: {
     Card
   },

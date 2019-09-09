@@ -3,11 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import config from './config'
+import mixin from './mixin'
 import fly from 'flyio'
 import {Toast} from 'vant'
 import 'vant/lib/toast/style'
 
 Vue.config.productionTip = false
+
+Vue.mixin(mixin)
 
 Vue.prototype.$config = config
 Vue.prototype.Toast = Toast
