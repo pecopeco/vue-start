@@ -5,12 +5,14 @@ import store from './store'
 import config from './config'
 import mixin from './mixin'
 import fly from 'flyio'
+import Vant from 'vant'
 import {Toast} from 'vant'
-import 'vant/lib/toast/style'
+import 'vant/lib/index.css'
 
 Vue.config.productionTip = false
 
 Vue.mixin(mixin)
+Vue.use(Vant)
 
 Vue.prototype.$config = config
 Vue.prototype.Toast = Toast

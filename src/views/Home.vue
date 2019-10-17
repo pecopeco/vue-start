@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Card from '@/components/Card'
+import Card from '@/components/card'
 
 export default {
   name: 'home',
@@ -23,8 +23,8 @@ export default {
   methods: {
     async getData () {
       this.Toast('loading...')
-      this.$store.dispatch('fetchUserInfo', 'yang')
-      this.text = await this.$http.put(this.$config.api_url + '/search', {id: 1})
+      this.$store.dispatch('setUser', {name: 'yang'})
+      this.text = await this.$http.get(this.$config.api_url + '/search', {id: 1})
     }
   },
   mounted () {
@@ -35,12 +35,16 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import "../color"
+@import "~@/color"
 
-.top {
-  padding-top .2rem
-}
-.card {
-  color theme
+.home {
+  .top {
+    width 1rem
+    margin 0 auto
+    padding-top .2rem
+  }
+  .card {
+    color theme
+  }
 }
 </style>

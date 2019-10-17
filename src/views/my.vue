@@ -1,14 +1,13 @@
 <template lang="pug">
-  .about
-    .title about
+  .my
+    .title {{"username:" + userInfo.name}}
     .back(@click="goBack()") back
-    .my(@click="go('./my')") go my
 </template>
 
 <script>
 
 export default {
-  name: 'about',
+  name: 'my',
   components: {
   },
   data () {
@@ -25,6 +24,6 @@ export default {
 <style scoped lang="stylus">
 @import "~@/color"
 
-.about {
+.my {
 }
 </style>

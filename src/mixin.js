@@ -9,9 +9,11 @@ export default {
   },
   methods: {
     go (path) {
+      this.$store.dispatch('setSlide', 'slide-left')
       this.$router.push(path)
     },
     goBack () {
+      this.$store.dispatch('setSlide', 'slide-right')
       this.$router.go(-1)
     },
     // 非空验证
@@ -43,6 +45,9 @@ export default {
   computed: {
     userInfo () {
       return this.$store.state.userInfo
+    },
+    transitionName () {
+      return this.$store.state.transitionName
     }
   },
   watch: {

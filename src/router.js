@@ -8,12 +8,17 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: require('@/views/Home').default
+      component: require('@/views/home').default
     },
     {
       path: '/about',
       name: 'about',
-      component: require('@/views/About').default
+      component: require('@/views/about').default
+    },
+    {
+      path: '/my',
+      name: 'my',
+      component: require('@/views/my').default
     },
     {
       path: '*',

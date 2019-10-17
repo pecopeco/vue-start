@@ -5,19 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userInfo: ''
-  },
-  mutations: {
-    SET_USER (state, data) {
-      state.userInfo = data
-    }
+    userInfo: '',
+    transitionName: 'slide-left'
   },
   actions: {
-    fetchUserInfo: ({ commit, state }, data) => {
-      console.log(state)
-      commit('SET_USER', {
-        name: data
-      })
+    setUser: ({ commit }, data) => {
+      commit('setUser', data)
+    },
+    setSlide: ({ commit }, data) => {
+      commit('setSlide', data)
+    }
+  },
+  mutations: {
+    setUser (state, data) {
+      state.userInfo = data
+    },
+    setSlide (state, data) {
+      state.transitionName = data
     }
   }
 })
