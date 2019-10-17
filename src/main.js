@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import config from './config'
 import mixin from './mixin'
 import fly from 'flyio'
 import Vant from 'vant'
@@ -14,8 +13,15 @@ Vue.config.productionTip = false
 Vue.mixin(mixin)
 Vue.use(Vant)
 
-Vue.prototype.$config = config
 Vue.prototype.Toast = Toast
+
+let config = {
+  api_url: process.env.NODE_ENV !== 'production'
+  ? '/api'
+  : 'https://baidu.com'
+}
+
+Vue.prototype.$config = config
 
 function request (url, form = {}, type) {
   let compleForm = form
