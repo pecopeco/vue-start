@@ -5,7 +5,7 @@ module.exports = {
     open: true,
     proxy: {
       '/api': {
-        target: 'https:baidu.com',
+        target: 'https://baidu.com',
         changeOrigin: true,
         pathRewrite: { '^/api': '' }
       }

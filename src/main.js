@@ -18,9 +18,10 @@ Vue.prototype.Toast = Toast
 let config = {
   api_url: process.env.NODE_ENV !== 'production'
   ? '/api'
+  : process.env.VUE_APP_MODE === 'stage'
+  ? 'https://test.baidu.com'
   : 'https://baidu.com'
 }
-
 Vue.prototype.$config = config
 
 function request (url, form = {}, type) {
