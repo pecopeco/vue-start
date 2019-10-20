@@ -1,29 +1,18 @@
-# vue
+# vue-start
 
-## Project setup
+> vue h5 模板，基于 pug、stylus、fly、vant、vuex、vue-router 搭建，适用于移动端单页应用
+
+## 安装
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 运行
 ```
-npm run serve
+npm start
 ```
 
-### Compiles and minifies for production
+### 打包
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
