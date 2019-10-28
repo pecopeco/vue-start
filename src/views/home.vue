@@ -16,7 +16,7 @@ export default {
   },
   data () {
     return {
-      text: '',
+      text: '123',
       time: 1566274478
     }
   },
@@ -28,14 +28,13 @@ export default {
     }
   },
   mounted () {
-    this.getData()
+    // this.getData()
     this.time = this.formatTime(this.time, '/', '/', '', true, true)
   }
 }
 </script>
 
 <style scoped lang="stylus">
-@import "~@/color"
 
 .home {
   .top {
