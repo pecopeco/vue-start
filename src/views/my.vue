@@ -1,5 +1,6 @@
 <template lang="pug">
   .my
+    van-nav-bar(title="my" left-arrow @click-left="goBack")
     .title {{"username:" + userInfo.name}}
     .back(@click="goBack()") back
 </template>
@@ -7,7 +8,6 @@
 <script>
 
 export default {
-  name: 'my',
   components: {
   },
   data () {

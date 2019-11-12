@@ -10,7 +10,6 @@
 import Card from '@/components/card'
 
 export default {
-  name: 'home',
   components: {
     Card
   },
