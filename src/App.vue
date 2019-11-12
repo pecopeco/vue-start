@@ -30,6 +30,7 @@ html,body,#app {
   overflow hidden
   & > div {
     width 100%
+    padding-top .42rem
   }
 }
 .theme {
@@ -43,6 +44,15 @@ html,body,#app {
 }
 img {
   width 100%
+}
+.van-nav-bar {
+  position fixed!important
+  top 0
+  left 0
+  width 100%
+  height .42rem!important
+  line-height .42rem!important
+  z-index 999!important
 }
 .fade-enter-active,
 .fade-leave-active {
