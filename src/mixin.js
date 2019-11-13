@@ -40,6 +40,42 @@ export default {
     // 手机号验证
     isPhone (key) {
       return !(key.length === 11 && /^((13|14|15|16|17|18|19)[0-9]{1}\d{8})$/.test(key))
+    },
+    async setJsSdkConfig () {
+      const data = await this.$http.post(this.$config.api_url + '/wechat/jssdk', {
+        url: encodeURIComponent(window.location.href.split('#')[0])
+      })
+      let apiList = ['onMenuShareTimeline', 'onMenuShareAppMessage']
+      wx.config({
+        debug: false,
+        appId: data.appId,
+        timestamp: data.timestamp,
+        nonceStr: data.nonceStr,
+        signature: data.signature,
+        jsApiList: apiList
+      })
+      wx.ready(() => {
+        wx.checkJsApi({
+          jsApiList: apiList,
+          success: function (res) {
+            console.log('微信config配置成功，可用接口：', JSON.stringify(res))
+          }
+        })
+        // wx.onMenuShareAppMessage({
+        //   title: 'title',
+        //   desc: 'desc',
+        //   link: window.location.origin,
+        //   imgUrl: 'imgUrl'
+        // })
+        // wx.onMenuShareTimeline({
+        //   title: 'title',
+        //   link: window.location.origin,
+        //   imgUrl: 'imgUrl'
+        // })
+      })
+      wx.error(function (res) {
+        console.log('微信config配置错误：', res)
+      })
     }
   },
   computed: {

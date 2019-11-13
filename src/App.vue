@@ -10,6 +10,9 @@ export default {
   data () {
     return {
     }
+  },
+  mounted () {
+    this.setJsSdkConfig()
   }
 }
 </script>
