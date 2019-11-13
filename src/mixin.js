@@ -41,6 +41,13 @@ export default {
     isPhone (key) {
       return !(key.length === 11 && /^((13|14|15|16|17|18|19)[0-9]{1}\d{8})$/.test(key))
     },
+    // 获取url参数
+    getQueryString (name) {
+      let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
+      let r = window.location.search.substr(1).match(reg)
+      if (r !== null) return unescape(r[2])
+      return null
+    },
     async setJsSdkConfig () {
       const data = await this.$http.post(this.$config.api_url + '/wechat/jssdk', {
         url: encodeURIComponent(window.location.href.split('#')[0])
