@@ -5,15 +5,14 @@ import store from './store'
 import mixin from './mixin'
 import fly from 'flyio'
 import Vant from 'vant'
-import {Toast} from 'vant'
+import {Toast, Dialog} from 'vant'
 import 'vant/lib/index.css'
 
 Vue.config.productionTip = false
 
 Vue.mixin(mixin)
 Vue.use(Vant)
-
-Vue.prototype.Toast = Toast
+Vue.use(Dialog)
 
 let config = {
   api_url: process.env.NODE_ENV !== 'production'

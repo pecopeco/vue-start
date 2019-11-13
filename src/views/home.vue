@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     async getData () {
-      this.Toast('loading...')
+      this.$toast('loading...')
       this.$store.dispatch('setUser', {name: 'yang'})
       this.text = await this.$http.get(this.$config.api_url + '/search', {id: 1})
     }
