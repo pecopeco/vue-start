@@ -4,6 +4,7 @@
       img(src="@/assets/logo.png" @click="getData")
     .about(@click="go('./about')") go about
     card(:text="text")
+    .time {{time | formatTime(' - ', ' - ', '', true, true)}}
 </template>
 
 <script>
@@ -28,7 +29,6 @@ export default {
   },
   mounted () {
     // this.getData()
-    this.time = this.formatTime(this.time, '/', '/', '', true, true)
   }
 }
 </script>
