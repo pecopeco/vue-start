@@ -18,6 +18,9 @@ export default {
   methods: {
   },
   mounted () {
+  },
+  destroyed () {
+    Object.assign(this.$data, this.$options.data())
   }
 }
 </script>
