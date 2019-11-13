@@ -30,7 +30,7 @@ html,body,#app {
   text-align center
   color #2c3e50
   font-size .16rem
-  overflow hidden
+  overflow auto
   & > div {
     width 100%
     padding-top .42rem
