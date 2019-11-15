@@ -33,7 +33,13 @@ html,body,#app {
   overflow auto
   & > div {
     width 100%
-    padding-top .42rem
+    min-height 100%
+    &:before {
+      display block
+      content: ''
+      width 100%
+      height .42rem
+    }
   }
 }
 .theme {
