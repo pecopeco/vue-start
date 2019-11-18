@@ -21,7 +21,6 @@ let config = {
   ? 'https://test.baidu.com'
   : 'https://baidu.com'
 }
-Vue.prototype.$config = config
 
 function request (url, form = {}, type) {
   let compleForm = form
@@ -36,7 +35,7 @@ function request (url, form = {}, type) {
     }
     compleForm = formData
   }
-  return fly.request(url, compleForm, {
+  return fly.request(config.api_url + url, compleForm, {
     method: type,
     timeout: 5000
   }).then((res) => {
