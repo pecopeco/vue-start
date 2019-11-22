@@ -1,6 +1,6 @@
 <template lang="pug">
   .my
-    van-nav-bar(title="my" left-arrow @click-left="goBack")
+    nav-bar(title="my")
     .title {{"username:" + userInfo.name}}
     .back(@click="goBack()") back
 </template>

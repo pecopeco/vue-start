@@ -1,6 +1,6 @@
 <template lang="pug">
   .about
-    van-nav-bar(title="about" left-arrow @click-left="goBack")
+    nav-bar(title="about")
     .title about
     .back(@click="goBack()") back
     .my(@click="go('./my')") go my

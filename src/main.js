@@ -7,8 +7,11 @@ import fly from 'flyio'
 import Vant from 'vant'
 import {Toast, Dialog} from 'vant'
 import 'vant/lib/index.css'
+import navBar from '@/components/navBar'
 
 Vue.config.productionTip = false
+
+Vue.component('nav-bar', navBar)
 
 Vue.mixin(mixin)
 Vue.use(Vant)
