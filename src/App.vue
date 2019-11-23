@@ -5,10 +5,63 @@
 </template>
 
 <script>
+import wx from 'weixin-js-sdk'
+
 export default {
   name: 'app',
   data () {
     return {
+      historyArr: sessionStorage.getItem('historyArr') ? sessionStorage.getItem('historyArr').split(',') : [location.hash]
+    }
+  },
+  watch: {
+    $route () {
+      if (location.hash === this.historyArr[this.historyArr.length - 2]) {
+        this.historyArr.pop()
+        this.$store.dispatch('setSlide', 'slide-right')
+      } else {
+        this.historyArr.push(location.hash)
+        this.$store.dispatch('setSlide', 'slide-left')
+      }
+      sessionStorage.setItem('historyArr', this.historyArr)
+    }
+  },
+  methods: {
+    async setJsSdkConfig () {
+      const data = await this.$http.post('/wechat/jssdk', {
+        url: encodeURIComponent(window.location.href.split('#')[0])
+      })
+      let apiList = ['onMenuShareTimeline', 'onMenuShareAppMessage']
+      wx.config({
+        debug: false,
+        appId: data.appId,
+        timestamp: data.timestamp,
+        nonceStr: data.nonceStr,
+        signature: data.signature,
+        jsApiList: apiList
+      })
+      wx.ready(() => {
+        wx.checkJsApi({
+          jsApiList: apiList,
+          success: function (res) {
+            console.log('微信config配置成功，可用接口：', JSON.stringify(res))
+          }
+        })
+        // wx.onMenuShareAppMessage({
+        //   title: 'title',
+        //   desc: 'desc',
+        //   link: window.location.origin,
+        //   imgUrl: 'imgUrl'
+        // })
+        // wx.onMenuShareTimeline({
+        //   title: 'title',
+        //   link: window.location.origin,
+        //   imgUrl: 'imgUrl'
+        // })
+      })
+      wx.error(function (res) {
+        console.log('微信config配置错误：', res)
+      })
     }
   },
   mounted () {

@@ -26,11 +26,9 @@ export default {
   },
   methods: {
     go (path) {
-      this.$store.dispatch('setSlide', 'slide-left')
       this.$router.push(path)
     },
     goBack () {
-      this.$store.dispatch('setSlide', 'slide-right')
       this.$router.go(-1)
     },
     // 非空验证
@@ -47,42 +45,6 @@ export default {
       let r = window.location.search.substr(1).match(reg)
       if (r !== null) return unescape(r[2])
       return null
-    },
-    async setJsSdkConfig () {
-      const data = await this.$http.post('/wechat/jssdk', {
-        url: encodeURIComponent(window.location.href.split('#')[0])
-      })
-      let apiList = ['onMenuShareTimeline', 'onMenuShareAppMessage']
-      wx.config({
-        debug: false,
-        appId: data.appId,
-        timestamp: data.timestamp,
-        nonceStr: data.nonceStr,
-        signature: data.signature,
-        jsApiList: apiList
-      })
-      wx.ready(() => {
-        wx.checkJsApi({
-          jsApiList: apiList,
-          success: function (res) {
-            console.log('微信config配置成功，可用接口：', JSON.stringify(res))
-          }
-        })
-        // wx.onMenuShareAppMessage({
-        //   title: 'title',
-        //   desc: 'desc',
-        //   link: window.location.origin,
-        //   imgUrl: 'imgUrl'
-        // })
-        // wx.onMenuShareTimeline({
-        //   title: 'title',
-        //   link: window.location.origin,
-        //   imgUrl: 'imgUrl'
-        // })
-      })
-      wx.error(function (res) {
-        console.log('微信config配置错误：', res)
-      })
     }
   },
   computed: {
