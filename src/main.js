@@ -20,7 +20,7 @@ Vue.use(Dialog)
 let config = {
   api_url: process.env.NODE_ENV !== 'production'
   ? '/api'
-  : process.env.VUE_APP_MODE === 'stage'
+  : process.env.VUE_APP_MODE === 'test'
   ? 'https://test.baidu.com'
   : 'https://baidu.com'
 }
