@@ -48,7 +48,6 @@ let server = {
     path: "/www/project"  // 服务器项目路径
   },
   test: {},    // 测试环境
-  debug: {}    // debug环境
 }
 ...
 ```
