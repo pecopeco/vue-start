@@ -4,7 +4,7 @@
 
 ## 安装
 ```
-npm install
+npm i
 ```
 
 ### 运行
