@@ -44,7 +44,7 @@ function request (url, form = {}, type) {
   }).then((res) => {
     if (type === 'delete' || res.status === 204) {
       return res.text()
-    } else if (res.data.state === 'T') {
+    } else if (res.status === 200) {
       return res.data
     } else {
       Toast(JSON.parse(res.data).error.msg)
