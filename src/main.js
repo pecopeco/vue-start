@@ -25,7 +25,7 @@ let config = {
   : 'https://baidu.com'
 }
 
-let requestUrl
+let requestUrl, requestForm
 
 // 重复请求延迟
 function delayRequest () {
@@ -34,12 +34,37 @@ function delayRequest () {
   }, 300)
 }
 
+// 判断两个对象属性是否完全相同
+function isObjectValueEqual(objA, objB) {
+  let aProps = Object.getOwnPropertyNames(objA)
+  let bProps = Object.getOwnPropertyNames(objB)
+  if (aProps.length !== bProps.length) {
+    return false
+  }
+  for (let i = 0; i < aProps.length; i++) {
+    let propName = aProps[i]
+    let propA = objA[propName]
+    let propB = objB[propName]
+    if (typeof (propA) === 'object') {
+      if (this.isObjectValueEqual(propA, propB)) {
+        return true
+      } else {
+        return false
+      }
+    } else if (propA !== propB) {
+      return false
+    }
+  }
+  return true
+}
+
 function request (url, form = {}, type) {
   // 拦截重复请求
-  if (requestUrl === url) {
+  if (requestUrl === url && isObjectValueEqual(requestForm, form)) {
     return
   }
   requestUrl = url
+  requestForm = JSON.parse(JSON.stringify(form))
 
   let compleForm = form
   // let presetForm = {
