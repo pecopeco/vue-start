@@ -4,9 +4,7 @@ import router from './router'
 import store from './store'
 import mixin from './mixin'
 import fly from 'flyio'
-import Vant from 'vant'
-import {Toast, Dialog} from 'vant'
-import 'vant/lib/index.css'
+import {Toast, Dialog, NavBar} from 'vant'
 import navBar from '@/components/navBar'
 
 Vue.config.productionTip = false
@@ -14,8 +12,8 @@ Vue.config.productionTip = false
 Vue.component('nav-bar', navBar)
 
 Vue.mixin(mixin)
-Vue.use(Vant)
 Vue.use(Dialog)
+Vue.use(NavBar)
 
 let config = {
   api_url: process.env.NODE_ENV !== 'production'
