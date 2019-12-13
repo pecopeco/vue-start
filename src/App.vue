@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app
+  #app(ref="app")
     transition(:name="transitionName")
       router-view
 </template>
@@ -24,6 +24,11 @@ export default {
         this.$store.dispatch('setSlide', 'slide-left')
       }
       sessionStorage.setItem('historyArr', this.historyArr)
+      if (this.$route.name === 'home') {
+        this.historyArr = [location.hash]
+        sessionStorage.removeItem('historyArr')
+      }
+      this.$refs.app.scrollTop = 0
     }
   },
   methods: {
