@@ -5,6 +5,7 @@
     .about(@click="go('./about')") go about
     .text {{text}}
     .time {{time | formatTime(' - ', ' - ', '', true, true)}}
+    loading
 </template>
 
 <script>

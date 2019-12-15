@@ -6,10 +6,12 @@ import mixin from './mixin'
 import fly from 'flyio'
 import {Toast, Dialog, NavBar} from 'vant'
 import navBar from '@/components/navBar'
+import loading from '@/components/loading'
 
 Vue.config.productionTip = false
 
 Vue.component('nav-bar', navBar)
+Vue.component('loading', loading)
 
 Vue.mixin(mixin)
 Vue.use(Dialog)
