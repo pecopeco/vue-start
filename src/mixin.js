@@ -31,9 +31,32 @@ export default {
     goBack () {
       this.$router.go(-1)
     },
-    // 非空验证
-    validate (key) {
-      return !key || key.match(/^[ ]+$/)
+    // 表单验证
+    validate (arr) {
+      let err
+      arr.some((item) => {
+        // 数字转换字符串
+        if (typeof (item.key) === 'number') {
+          item.key = item.key.toString()
+        }
+        // 验证非空
+        if (!item.key || item.key.match(/^[ ]+$/)) {
+          return err = '请填写' + item.name
+        }
+        // 验证姓名
+        if (item.type === 'name' && (!/^[\u4e00-\u9fa5]+$/.test(item.key) || item.key.length < 2)) {
+          return err = '请输入正确的' + item.name
+        }
+        // 验证手机号
+        if (item.type === 'phone' && !(item.key.length === 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/.test(item.key))) {
+          return err = '请输入正确的' + item.name
+        }
+        // 验证身份证号
+        if (item.type === 'idCard' && !/^\d{6}(19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(item.key)) {
+          return err = '请输入正确的' + item.name
+        }
+      })
+      return err
     },
     // 手机号验证
     isPhone (key) {
