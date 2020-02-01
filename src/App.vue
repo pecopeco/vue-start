@@ -103,7 +103,7 @@ html,body,#app {
 .theme {
   color theme
 }
-.font-gray {
+.gray {
   color fontGray
 }
 .bold {
