@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import mixin from './mixin'
 import fly from 'flyio'
-import {Toast, Dialog, NavBar, Loading, Field, Button} from 'vant'
+import {Toast, Dialog} from 'vant'
 import navBar from '@/components/navBar'
 import loading from '@/components/loading'
 
@@ -14,11 +14,8 @@ Vue.component('nav-bar', navBar)
 Vue.component('loading', loading)
 
 Vue.mixin(mixin)
+Vue.use(Vant)
 Vue.use(Dialog)
-Vue.use(NavBar)
-Vue.use(Loading)
-Vue.use(Field)
-Vue.use(Button)
 
 let config = {
   api_url: process.env.NODE_ENV !== 'production'
