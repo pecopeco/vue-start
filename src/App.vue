@@ -87,7 +87,7 @@ html,body,#app {
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
-  font-size .16rem
+  font-size .14rem
   overflow auto
   & > div {
     width 100%
