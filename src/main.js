@@ -79,7 +79,8 @@ function request (url, form = {}, type) {
     }
     compleForm = formData
   }
-  return fly.request(config.api_url + url, compleForm, {
+  let transUrl = url.indexOf("http") !== -1 ? url : config.api_url + url
+  return fly.request(transUrl, compleForm, {
     method: type,
     timeout: 5000
   }).then((res) => {
