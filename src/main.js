@@ -82,7 +82,7 @@ function request (url, form = {}, type) {
   let transUrl = url.indexOf("http") !== -1 ? url : config.api_url + url
   return fly.request(transUrl, compleForm, {
     method: type,
-    timeout: 5000
+    timeout: 10000
   }).then((res) => {
     delayRequest()
     if (type === 'delete' || res.status === 204) {
