@@ -5,7 +5,7 @@ import store from './store'
 import mixin from './mixin'
 import fly from 'flyio'
 import Vant from 'vant'
-import 'vant/lib/index.css';
+import 'vant/lib/index.css'
 import {Toast, Dialog} from 'vant'
 import navBar from '@/components/navBar'
 import loading from '@/components/loading'
