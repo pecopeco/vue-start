@@ -76,6 +76,7 @@ export default {
           this.resetImgUrl(val)
         }
         setTimeout(() => {
+          // eslint-disable-next-line
           val.srcElement.src = val.srcElement.src
         }, 200)
       } else {
