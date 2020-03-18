@@ -68,6 +68,20 @@ export default {
       let r = window.location.search.substr(1).match(reg)
       if (r !== null) return unescape(r[2])
       return null
+    },
+    resetImgUrl (val) {
+      if (this.maxErrorNum > 0) {
+        --this.maxErrorNum
+        val.οnerrοr = () => {
+          this.resetImgUrl(val)
+        }
+        setTimeout(() => {
+          val.srcElement.src = val.srcElement.src
+        }, 200)
+      } else {
+        val.οnerrοr = null
+        val.srcElement.src = require('@/assets/default-avatar.png')
+      }
     }
   },
   computed: {

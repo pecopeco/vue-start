@@ -2,8 +2,9 @@
   .home
     .top
       img(src="@/assets/logo.png" @click="getData")
+      img(:src="data.avatar || require('@/assets/default-avatar.png')" @error="resetImgUrl")
     .about(@click="go('./about')") go about
-    .text {{text}}
+    .text {{data.text}}
     .time {{time | formatTime(' - ', ' - ', '', true, true)}}
     loading
 </template>
@@ -15,7 +16,7 @@ export default {
   },
   data () {
     return {
-      text: '123',
+      data: '123',
       time: 1566274478
     }
   },
@@ -23,7 +24,7 @@ export default {
     async getData () {
       this.$toast('loading...')
       this.$store.dispatch('setUser', {name: 'yang'})
-      this.text = await this.$http.get('/search', {id: 1})
+      this.data = await this.$http.get('/search', {id: 1})
     }
   },
   mounted () {
