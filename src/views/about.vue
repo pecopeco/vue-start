@@ -1,7 +1,6 @@
 <template lang="pug">
   .about
     nav-bar(title="about")
-    .title about
     van-field(
       v-model="name"
       label="姓名"
@@ -14,12 +13,7 @@
       placeholder="请输入手机号"
       clearable
     )
-    van-button(
-      type="primary"
-      @click="submit"
-    ) 提交
-    .back(@click="goBack()") back
-    .my(@click="go('./my')") go my
+    van-button.btn(type="primary" @click="submit") 提交
 </template>
 
 <script>
@@ -72,5 +66,8 @@ export default {
 <style scoped lang="stylus">
 
 .about {
+  .btn {
+    margin-top .2rem
+  }
 }
 </style>

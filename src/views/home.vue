@@ -3,9 +3,11 @@
     .top
       img(src="@/assets/logo.png" @click="getData")
       img(:src="data.avatar || require('@/assets/default-avatar.png')" @error="resetImgUrl")
-    .about(@click="go('./about')") go about
+    .btn-wrap
+      van-button.btn(type="primary" @click="go('/about')") go about
+      van-button.btn(type="primary" @click="go('/my')") go my
     .text {{data.text}}
-    .time {{time | formatTime(' - ', ' - ', '', true, true)}}
+    .time {{time | formatTime('-', '-', '', true, true)}}
     loading
 </template>
 
@@ -16,19 +18,22 @@ export default {
   },
   data () {
     return {
-      data: '123',
+      data: {
+        avatar: '111',
+        text: '222'
+      },
       time: 1566274478
     }
   },
   methods: {
     async getData () {
       this.$toast('loading...')
-      this.$store.dispatch('setUser', {name: 'yang'})
       this.data = await this.$http.get('/search', {id: 1})
     }
   },
   mounted () {
-    this.getData()
+    this.$store.dispatch('setUser', {name: 'yang'})
+    // this.getData()
   }
 }
 </script>
@@ -41,8 +46,14 @@ export default {
     margin 0 auto
     padding-top .2rem
   }
-  .card {
-    color theme
+  .btn-wrap {
+    padding .2rem 0
+    .btn:first-child {
+      margin-right .2rem
+    }
+  }
+  .text {
+    padding .2rem 0
   }
 }
 </style>

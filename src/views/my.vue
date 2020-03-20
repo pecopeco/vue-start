@@ -1,8 +1,7 @@
 <template lang="pug">
   .my
     nav-bar(title="my")
-    .title {{"username:" + userInfo.name}}
-    .back(@click="goBack()") back
+    .name {{"username:" + userInfo.name}}
 </template>
 
 <script>
@@ -24,5 +23,8 @@ export default {
 <style scoped lang="stylus">
 
 .my {
+  .name {
+    padding .2rem
+  }
 }
 </style>

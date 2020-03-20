@@ -70,7 +70,7 @@ export default {
     }
   },
   mounted () {
-    this.setJsSdkConfig()
+    // this.setJsSdkConfig()
   }
 }
 </script>
