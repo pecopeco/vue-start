@@ -58,10 +58,6 @@ export default {
       })
       return err
     },
-    // 手机号验证
-    isPhone (key) {
-      return !(key.length === 11 && /^((13|14|15|16|17|18|19)[0-9]{1}\d{8})$/.test(key))
-    },
     // 获取url参数
     getQueryString (name) {
       let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')

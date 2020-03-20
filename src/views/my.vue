@@ -1,6 +1,6 @@
 <template lang="pug">
   .my
-    .title {{"username:" + userInfo.name}}
+    .name {{"username:" + userInfo.name}}
 </template>
 
 <script>
@@ -22,5 +22,8 @@ export default {
 <style scoped lang="stylus">
 
 .my {
+  .name {
+    padding .2rem
+  }
 }
 </style>
