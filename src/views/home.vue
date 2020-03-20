@@ -3,7 +3,6 @@
     .top
       img(src="@/assets/logo.png" @click="getData")
       img(:src="data.avatar || require('@/assets/default-avatar.png')" @error="resetImgUrl")
-    .about(@click="go('./about')") go about
     .text {{data.text}}
     .time {{time | formatTime(' - ', ' - ', '', true, true)}}
     loading

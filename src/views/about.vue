@@ -1,6 +1,5 @@
 <template lang="pug">
   .about
-    nav-bar(title="about")
     .title about
     van-field(
       v-model="name"
@@ -18,8 +17,6 @@
       type="primary"
       @click="submit"
     ) 提交
-    .back(@click="goBack()") back
-    .my(@click="go('./my')") go my
 </template>
 
 <script>

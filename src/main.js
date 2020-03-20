@@ -8,11 +8,13 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 import {Toast, Dialog} from 'vant'
 import navBar from '@/components/navBar'
+import tabBar from '@/components/tabBar'
 import loading from '@/components/loading'
 
 Vue.config.productionTip = false
 
 Vue.component('nav-bar', navBar)
+Vue.component('tab-bar', tabBar)
 Vue.component('loading', loading)
 
 Vue.mixin(mixin)
@@ -126,6 +128,25 @@ request.delete = (url, form) => request(url, form, 'delete')
 request.put = (url, form) => request(url, form, 'put')
 
 Vue.prototype.$http = request
+
+router.beforeEach(async (to, from, next) => {
+  let pathArr = ['/', '/about', '/my']
+  let fromIndex, toIndex
+  pathArr.map((item, index) => {
+    if (item === from.path) {
+      fromIndex = index
+    }
+    if (item === to.path) {
+      toIndex = index
+    }
+  })
+  if (fromIndex < toIndex) {
+    store.dispatch('setSlide', 'slide-left')
+  } else {
+    store.dispatch('setSlide', 'slide-right')
+  }
+  next()
+})
 
 new Vue({
   router,

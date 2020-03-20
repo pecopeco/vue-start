@@ -91,6 +91,9 @@ export default {
     },
     transitionName () {
       return this.$store.state.transitionName
+    },
+    checkTab () {
+      return this.$store.state.checkTab
     }
   },
   watch: {

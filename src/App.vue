@@ -2,6 +2,7 @@
   #app(ref="app")
     transition(:name="transitionName")
       router-view
+    tab-bar
 </template>
 
 <script>
@@ -16,6 +17,12 @@ export default {
   },
   watch: {
     $route () {
+      if (this.$route.name === 'home' || this.$route.name === 'about' || this.$route.name === 'my') {
+        this.historyArr = [location.hash]
+        sessionStorage.removeItem('historyArr')
+        this.$refs.app.scrollTop = 0
+        return
+      }
       if (location.hash === this.historyArr[this.historyArr.length - 2]) {
         this.historyArr.pop()
         this.$store.dispatch('setSlide', 'slide-right')
@@ -24,10 +31,6 @@ export default {
         this.$store.dispatch('setSlide', 'slide-left')
       }
       sessionStorage.setItem('historyArr', this.historyArr)
-      if (this.$route.name === 'home') {
-        this.historyArr = [location.hash]
-        sessionStorage.removeItem('historyArr')
-      }
       this.$refs.app.scrollTop = 0
     }
   },

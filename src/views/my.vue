@@ -1,8 +1,6 @@
 <template lang="pug">
   .my
-    nav-bar(title="my")
     .title {{"username:" + userInfo.name}}
-    .back(@click="goBack()") back
 </template>
 
 <script>
