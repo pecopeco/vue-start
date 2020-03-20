@@ -32,8 +32,8 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('setUser', {name: 'yang'})
     // this.getData()
+    this.$store.dispatch('setUser', {name: 'yang'})
   }
 }
 </script>

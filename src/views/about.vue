@@ -5,12 +5,14 @@
       v-model="name"
       label="姓名"
       placeholder="请输入就诊人姓名"
+      :error="err.name"
       clearable
     )
     van-field(
       v-model="phone"
       label="手机号"
       placeholder="请输入手机号"
+      :error="err.phone"
       clearable
     )
     van-button.btn(type="primary" @click="submit") 提交
@@ -24,12 +26,13 @@ export default {
   data () {
     return {
       name: '',
-      phone: ''
+      phone: '',
+      err: ''
     }
   },
   methods: {
     async submit () {
-      let err = this.validate([
+      this.err = this.validate([
         {
           key: this.name,
           type: 'name',
@@ -41,8 +44,8 @@ export default {
           name: '手机号'
         }
       ])
-      if (err) {
-        return this.$toast(err)
+      if (this.err) {
+        return this.$toast(this.err.msg)
       }
       this.loading = true
       const res = await this.$http.post('/xxx', {
