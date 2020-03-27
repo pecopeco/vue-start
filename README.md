@@ -42,6 +42,7 @@ npm run prod
 ...
 let server = {
   default: {  // 正式环境
+    port: 4993,        // 端口
     host: "0.0.0.0",  // 服务器IP地址
     username: "root",  // 账号
     password: "123456",  // 密码
