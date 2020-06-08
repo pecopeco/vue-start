@@ -59,6 +59,10 @@ export default {
           err[item.type] = true
           return err.msg = '请输入正确的' + item.name
         }
+        // 验证金额
+        if (item.type === 'price' && ((!Number.isFinite(Number(item.key)) || Number(item.key) <= 0) || (item.key.split('.')[1] && item.key.split('.')[1].length > 2))) {
+          err = '请输入正确的' + item.name
+        }
       })
       return Object.keys(err).length ? err : ''
     },

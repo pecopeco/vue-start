@@ -152,7 +152,7 @@ img {
   transform translate3d(100%, 0, 0)
 }
 .slide-left-leave-active {
-  opacity 0.1
+  opacity 0
   transform translate3d(-50%, 0, 0)
 }
 </style>
