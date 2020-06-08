@@ -45,9 +45,10 @@ export default {
   left 0
   bottom 0
   display flex
+  align-items center
   width 100%
+  height .48rem
   min-height auto!important
-  padding .07rem 0 .04rem
   border-top 1px solid borderGray
   background #fff
   &:before {
