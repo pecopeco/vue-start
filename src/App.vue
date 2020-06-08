@@ -103,6 +103,11 @@ html,body,#app {
     }
   }
 }
+.home,.about,.my {
+  &:before {
+    display none!important
+  }
+}
 .theme {
   color theme
 }
