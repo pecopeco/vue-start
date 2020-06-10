@@ -21,6 +21,7 @@ export default {
         this.historyArr = [location.hash]
         sessionStorage.removeItem('historyArr')
         this.$refs.app.scrollTop = 0
+        this.$store.dispatch('setTab', this.$route.name)
         return
       }
       if (location.hash === this.historyArr[this.historyArr.length - 2]) {
