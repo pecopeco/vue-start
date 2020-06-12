@@ -12,23 +12,23 @@ export default {
   name: 'app',
   data () {
     return {
-      historyArr: sessionStorage.getItem('historyArr') ? sessionStorage.getItem('historyArr').split(',') : [location.hash]
+      historyArr: sessionStorage.getItem('historyArr') ? sessionStorage.getItem('historyArr').split(',') : [this.$route.name]
     }
   },
   watch: {
     $route () {
       if (this.$route.name === 'home' || this.$route.name === 'about' || this.$route.name === 'my') {
-        this.historyArr = [location.hash]
+        this.historyArr = [this.$route.name]
         sessionStorage.removeItem('historyArr')
         this.$refs.app.scrollTop = 0
         this.$store.dispatch('setTab', this.$route.name)
         return
       }
-      if (location.hash === this.historyArr[this.historyArr.length - 2]) {
+      if (this.$route.name === this.historyArr[this.historyArr.length - 2]) {
         this.historyArr.pop()
         this.$store.dispatch('setSlide', 'slide-right')
       } else {
-        this.historyArr.push(location.hash)
+        this.historyArr.push(this.$route.name)
         this.$store.dispatch('setSlide', 'slide-left')
       }
       sessionStorage.setItem('historyArr', this.historyArr)
@@ -123,6 +123,20 @@ html,body,#app {
 }
 img {
   width 100%
+}
+.iframe-wrap {
+  position fixed 
+  right 0 
+  bottom 0 
+  left 0 
+  top 0 
+  -webkit-overflow-scrolling: touch
+  overflow-y scroll
+  iframe {
+    width 100%
+    height 100%
+    border none
+  }
 }
 .van-nav-bar {
   position fixed!important
