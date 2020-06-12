@@ -122,11 +122,11 @@ img {
   width 100%
 }
 .iframe-wrap {
-  position fixed 
-  right 0 
-  bottom 0 
-  left 0 
-  top 0 
+  position fixed
+  top .42rem
+  right 0
+  bottom 0
+  left 0
   -webkit-overflow-scrolling: touch
   overflow-y scroll
   iframe {
