@@ -74,9 +74,6 @@ export default {
     }
   },
   mounted () {
-    if (this.$route.name === 'home' || this.$route.name === 'about' || this.$route.name === 'my') {
-      this.$store.dispatch('setTab', this.$route.name)
-    }
     // this.setJsSdkConfig()
   }
 }
