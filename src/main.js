@@ -130,7 +130,11 @@ request.put = (url, form) => request(url, form, 'put')
 Vue.prototype.$http = request
 
 router.beforeEach(async (to, from, next) => {
-  let pathArr = ['/', '/about', '/my']
+  let pathArr = []
+  router.options.routes.map((item) => {
+    pathArr.push(item.name)
+  })
+  pathArr = [...new Set(pathArr)]
   let fromIndex, toIndex
   pathArr.map((item, index) => {
     if (item === from.path) {
