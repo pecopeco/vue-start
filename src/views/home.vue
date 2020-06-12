@@ -25,7 +25,7 @@ export default {
   methods: {
     async getData () {
       this.$toast('loading...')
-      this.data = await this.$http.get('/search', {id: 1})
+      this.data = await this.http.get('/search', {id: 1})
     }
   },
   mounted () {
