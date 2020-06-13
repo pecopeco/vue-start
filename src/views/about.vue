@@ -47,7 +47,7 @@ export default {
         return this.$toast(this.err.msg)
       }
       this.loading = true
-      const res = await this.$http.post('/xxx', {
+      const res = await this.http.post('/xxx', {
         name: this.name,
         phone: this.phone
       })

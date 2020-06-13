@@ -4,13 +4,6 @@ import router from './router'
 import {Toast} from 'vant'
 
 let requestUrl, requestForm
-let config = {
-  api_url: process.env.NODE_ENV !== 'production'
-  ? '/api'
-  : process.env.VUE_APP_MODE === 'test'
-  ? 'https://test.baidu.com'
-  : 'https://baidu.com'
-}
 
 export default {
   components: {
@@ -45,7 +38,7 @@ export default {
     goBack () {
       this.$router.go(-1)
     },
-    http (url, form = {}, type) {
+    request (url, form = {}, type) {
       // 拦截重复请求
       if (requestUrl === url && this.isObjectValueEqual(requestForm, form)) {
         return
@@ -253,10 +246,6 @@ export default {
   watch: {
   },
   mounted () {
-    this.http.get = (url, form) => this.http(url, form, 'get')
-    this.http.post = (url, form) => this.http(url, form, 'post')
-    this.http.delete = (url, form) => this.http(url, form, 'delete')
-    this.http.put = (url, form) => this.http(url, form, 'put')
   },
   beforeDestory () {
   }

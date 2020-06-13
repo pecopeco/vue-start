@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     async setJsSdkConfig () {
-      const data = await this.$http.post('/wechat/jssdk', {
+      const data = await this.http.post('/wechat/jssdk', {
         url: encodeURIComponent(window.location.href.split('#')[0])
       })
       let apiList = ['onMenuShareTimeline', 'onMenuShareAppMessage']
