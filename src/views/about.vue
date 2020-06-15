@@ -2,6 +2,8 @@
   .about
     van-field(
       v-model="name"
+      @focus="focus = true"
+      @blur="focus = false"
       label="姓名"
       placeholder="请输入就诊人姓名"
       :error="err.name"
@@ -9,6 +11,8 @@
     )
     van-field(
       v-model="phone"
+      @focus="focus = true"
+      @blur="focus = false"
       label="手机号"
       placeholder="请输入手机号"
       :error="err.phone"
@@ -26,7 +30,13 @@ export default {
     return {
       name: '',
       phone: '',
-      err: ''
+      err: '',
+      focus: false
+    }
+  },
+  watch: {
+    focus () {
+      this.inputListen(this.focus)
     }
   },
   methods: {

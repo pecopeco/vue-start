@@ -69,9 +69,7 @@ export default {
       return fly.request(transUrl, compleForm, {
         method: type,
         headers: {
-          uid: localStorage.getItem("localUid") || '',
-          timestamp: localStorage.getItem("timestamp") || '',
-          signature: localStorage.getItem("signature") || ''
+          token: 'xxxxxxxxxxxx'
         },
         timeout: 10000
       }).then((res) => {
@@ -169,13 +167,13 @@ export default {
       }
     },
     // 键盘弹出隐藏fixed定位的按钮
-    inputListen () {
+    inputListen (focus) {
       let clientHeight = document.documentElement.clientHeight || document.body.clientHeight
       window.addEventListener("resize", () => {
         let nowClientHeight = document.documentElement.clientHeight || document.body.clientHeight
         if (clientHeight > nowClientHeight) {
           //键盘弹出的事件处理
-          store.dispatch('setShowBtn', false)
+          focus && store.dispatch('setShowBtn', false)
         }
         else {
           //键盘收起的事件处理
