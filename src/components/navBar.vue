@@ -1,5 +1,6 @@
 <template lang="pug">
-  van-nav-bar(:title="title" left-arrow :left-text="leftText" @click-left="goBack")
+  .nav-bar
+    van-nav-bar(:title="title" left-arrow :left-text="leftText" @click-left="goBack")
 </template>
 
 <script>
@@ -31,4 +32,18 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus"></style>
+<style scoped lang="stylus">
+
+.nav-bar {
+  height .42rem
+  .van-nav-bar {
+    position fixed!important
+    top 0
+    left 0
+    width 100%
+    height .42rem!important
+    line-height .42rem!important
+    z-index 999!important
+  }
+}
+</style>

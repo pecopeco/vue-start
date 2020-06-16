@@ -96,17 +96,6 @@ html,body,#app {
   & > div {
     width 100%
     min-height 100%
-    &:before {
-      display block
-      content: ''
-      width 100%
-      height .42rem
-    }
-  }
-}
-.home,.about,.my {
-  &:before {
-    display none!important
   }
 }
 .theme {
@@ -134,15 +123,6 @@ img {
     height 100%
     border none
   }
-}
-.van-nav-bar {
-  position fixed!important
-  top 0
-  left 0
-  width 100%
-  height .42rem!important
-  line-height .42rem!important
-  z-index 999!important
 }
 .fade-enter-active,
 .fade-leave-active {
