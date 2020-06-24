@@ -42,8 +42,8 @@ export default {
     go (path) {
       this.$router.push(path)
     },
-    goBack () {
-      this.$router.go(-1)
+    goBack (key = -1) {
+      this.$router.go(key)
     },
     http (url, form = {}, type) {
       // 拦截重复请求
@@ -221,6 +221,10 @@ export default {
       let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
       let param = location.search || location.hash
       let r = param.substr(1).match(reg)
+      if (param.split('code').length > 2 && r) {
+        param = '?' + param.split(r[0])[param.split(r[0]).length - 1]
+        r = param.substr(1).match(reg)
+      }
       if (r !== null) return unescape(r[2])
       return null
     },
