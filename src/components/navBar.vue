@@ -1,6 +1,6 @@
 <template lang="pug">
   .nav-bar
-    van-nav-bar(:title="title" left-arrow :left-text="leftText" @click-left="goBack")
+    van-nav-bar(:title="title" left-arrow :left-text="leftText" @click-left="goBack()")
 </template>
 
 <script>
