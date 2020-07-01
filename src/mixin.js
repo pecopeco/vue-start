@@ -242,6 +242,34 @@ export default {
         val.οnerrοr = null
         val.srcElement.src = require('@/assets/default-avatar.png')
       }
+    },
+    // 数组随机排序
+    randomArray (arr) {
+      if (!(arr instanceof Array)) {
+        console.error('生成随机数组调用失败：参数类型不正确')
+        return
+      }
+      if (arr.length < 2) {     //大于1才有随机性
+        return arr
+      }
+      let arrSource = arr.slice()          //复制源数组
+      let arrTarget = []              //存储结果的数组
+      f()
+      function f () {
+        if (arrSource.length < 2) {         //只有一个元素，随机完成
+          arrTarget.push(arrSource[0])
+          return
+        }
+        let min = 0
+        let max = arrSource.length - 1
+        let index = random(min, max)
+        arrTarget.push(arrSource.splice(index, 1)[0])   //取出随机项
+        f()    //递归执行随机
+      }
+      function random (min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min) //1去掉则不含尾
+      }
+      return arrTarget
     }
   },
   computed: {
