@@ -270,6 +270,18 @@ export default {
         return Math.floor(Math.random() * (max - min + 1) + min) //1去掉则不含尾
       }
       return arrTarget
+    },
+    // 本地存储超过3m清空
+    keepStorage () {
+      let size = 0
+      for (let item in localStorage) {  
+        if (localStorage.hasOwnProperty(item)) {  
+          size += localStorage.getItem(item).length;
+        }
+      }
+      if (+(size / 1024 / 1024).toFixed(10) >= 3) {
+        localStorage.clear()
+      }
     }
   },
   computed: {
