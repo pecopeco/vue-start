@@ -6,6 +6,7 @@
 <script>
 
 export default {
+  name: 'navBar',
   props: {
     title: {
       type: String,
