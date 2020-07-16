@@ -7,8 +7,7 @@ export default new Vuex.Store({
   state: {
     userInfo: '',
     showBtn: true,  // 键盘弹出fixed定位按钮隐藏
-    transitionName: 'slide-left',
-    checkTab: 'home'
+    transitionName: 'slide-left'
   },
   actions: {
     setUser: ({ commit }, data) => {
@@ -19,9 +18,6 @@ export default new Vuex.Store({
     },
     setSlide: ({ commit }, data) => {
       commit('setSlide', data)
-    },
-    setTab: ({ commit }, data) => {
-      commit('setTab', data)
     }
   },
   mutations: {
@@ -33,9 +29,6 @@ export default new Vuex.Store({
     },
     setSlide (state, data) {
       state.transitionName = data
-    },
-    setTab (state, data) {
-      state.checkTab = data
     }
   }
 })
