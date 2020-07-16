@@ -2,7 +2,19 @@
   #app(ref="app")
     transition(:name="transitionName")
       router-view
-    tab-bar
+    van-tabbar(route active-color="#1296db")
+      van-tabbar-item(replace to="/")
+        span 首页
+        template(#icon="props")
+          img(:src="props.active ? require('@/assets/home-check.png') : require('@/assets/home.png')")
+      van-tabbar-item(replace to="/about")
+        span 关于
+        template(#icon="props")
+          img(:src="props.active ? require('@/assets/about-check.png') : require('@/assets/about.png')")
+      van-tabbar-item(replace to="/my")
+        span 我的
+        template(#icon="props")
+          img(:src="props.active ? require('@/assets/my-check.png') : require('@/assets/my.png')")
 </template>
 
 <script>
@@ -12,28 +24,9 @@ export default {
   name: 'app',
   data () {
     return {
-      historyArr: sessionStorage.getItem('historyArr') ? sessionStorage.getItem('historyArr').split(',') : [this.$route.name]
     }
   },
   watch: {
-    $route () {
-      if (this.$route.name === 'home' || this.$route.name === 'about' || this.$route.name === 'my') {
-        this.historyArr = [this.$route.name]
-        sessionStorage.removeItem('historyArr')
-        this.$refs.app.scrollTop = 0
-        this.$store.dispatch('setTab', this.$route.name)
-        return
-      }
-      if (this.$route.name === this.historyArr[this.historyArr.length - 2]) {
-        this.historyArr.pop()
-        this.$store.dispatch('setSlide', 'slide-right')
-      } else {
-        this.historyArr.push(this.$route.name)
-        this.$store.dispatch('setSlide', 'slide-left')
-      }
-      sessionStorage.setItem('historyArr', this.historyArr)
-      this.$refs.app.scrollTop = 0
-    }
   },
   methods: {
     async setJsSdkConfig () {
@@ -109,6 +102,18 @@ html,body,#app {
 }
 img {
   width 100%
+}
+.van-tabbar {
+  min-height auto!important
+  height .45rem!important
+  padding-top .03rem
+  img {
+    width .2rem
+    height .2rem!important
+  }
+  .van-tabbar-item__text {
+    margin-top .02rem!important
+  }
 }
 .iframe-wrap {
   position fixed
