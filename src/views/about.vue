@@ -1,5 +1,5 @@
 <template lang="pug">
-  .about
+  v-touch.about(@swipeleft="go('/my')" @swiperight="go('/home')")
     van-field(
       v-model="name"
       @focus="focus = true"

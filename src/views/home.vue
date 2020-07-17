@@ -1,5 +1,5 @@
 <template lang="pug">
-  .home
+  v-touch.home(@swipeleft="go('/about')")
     .top
       img(src="@/assets/logo.png" @click="getData")
       img(:src="data.avatar || require('@/assets/default-avatar.png')" @error="resetImgUrl")

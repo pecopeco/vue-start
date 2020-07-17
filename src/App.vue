@@ -129,14 +129,6 @@ img {
     border none
   }
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition all 0.3s ease
-}
-.fade-enter,
-.fade-leave-active {
-  opacity 0
-}
 .slide-right-enter-active,
 .slide-right-leave-active,
 .slide-left-enter-active,

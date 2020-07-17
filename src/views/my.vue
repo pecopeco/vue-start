@@ -1,5 +1,5 @@
 <template lang="pug">
-  .my
+  v-touch.my(@swiperight="go('/about')")
     .name {{"username:" + userInfo.name}}
 </template>
 
