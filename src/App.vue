@@ -1,9 +1,6 @@
 <template lang="pug">
   #app(ref="app")
     transition(:name="transitionName")
-      .nav-bar(v-if="$route.name !== 'home' && $route.name !== 'about' && $route.name !== 'my'")
-        van-nav-bar(:title="typeof $route.meta === 'string' && $route.meta" left-arrow @click-left="goBack()")
-    transition(:name="transitionName")
       router-view
     .tab-bar(v-if="$route.name === 'home' || $route.name === 'about' || $route.name === 'my'")
       van-tabbar(route active-color="#1296db")

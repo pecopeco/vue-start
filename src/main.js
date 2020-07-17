@@ -8,12 +8,14 @@ import 'vant/lib/index.css'
 import {Toast, Dialog} from 'vant'
 import VueTouch from 'vue-touch'
 
+import navBar from '@/components/navBar'
 import loading from '@/components/loading'
 
 Vue.config.productionTip = false
 
 Vue.use(VueTouch, {name: 'v-touch'})
 
+Vue.component('navBar', navBar)
 Vue.component('loading', loading)
 
 Vue.mixin(mixin)
