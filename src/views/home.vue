@@ -2,9 +2,10 @@
   v-touch.home(@swipeleft="go('/about')")
     .top
       img(src="@/assets/logo.png" @click="getData")
-      img(:src="data.avatar || require('@/assets/default-avatar.png')" @error="resetImgUrl")
-    .text {{data.text}}
+      img(:src="info.avatar || require('@/assets/default-avatar.png')" @error="resetImgUrl")
+    .text {{info.text}}
     .time {{time | formatTime('-', '-', '', true, true)}}
+    van-button(@click="go('/detail')") 详情
     loading
 </template>
 
@@ -16,7 +17,7 @@ export default {
   },
   data () {
     return {
-      data: {
+      info: {
         avatar: '111',
         text: '222'
       },
@@ -26,7 +27,7 @@ export default {
   methods: {
     async getData () {
       this.$toast('loading...')
-      this.data = await this.http.get('/search', {id: 1})
+      this.info = await this.http.get('/search', {id: 1})
     }
   },
   mounted () {
