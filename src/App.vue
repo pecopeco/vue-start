@@ -117,6 +117,15 @@ img {
     min-height auto!important
     height .42rem!important
     z-index 9!important
+    .van-nav-bar__left {
+      display flex
+      align-items center
+      height 100%
+      .van-nav-bar__arrow {
+        font-size 22px
+        color #000
+      }
+    }
   }
 }
 .tab-bar {
