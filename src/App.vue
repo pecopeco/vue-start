@@ -1,20 +1,24 @@
 <template lang="pug">
   #app(ref="app")
     transition(:name="transitionName")
+      .nav-bar(v-if="$route.name !== 'home' && $route.name !== 'about' && $route.name !== 'my'")
+        van-nav-bar(:title="typeof $route.meta === 'string' && $route.meta" left-arrow @click-left="goBack()")
+    transition(:name="transitionName")
       router-view
-    van-tabbar(route active-color="#1296db")
-      van-tabbar-item(replace to="/")
-        span 首页
-        template(#icon="props")
-          img(:src="props.active ? require('@/assets/home-check.png') : require('@/assets/home.png')")
-      van-tabbar-item(replace to="/about")
-        span 关于
-        template(#icon="props")
-          img(:src="props.active ? require('@/assets/about-check.png') : require('@/assets/about.png')")
-      van-tabbar-item(replace to="/my")
-        span 我的
-        template(#icon="props")
-          img(:src="props.active ? require('@/assets/my-check.png') : require('@/assets/my.png')")
+    .tab-bar(v-if="$route.name === 'home' || $route.name === 'about' || $route.name === 'my'")
+      van-tabbar(route active-color="#1296db")
+        van-tabbar-item(replace to="/")
+          span 首页
+          template(#icon="props")
+            img(:src="props.active ? require('@/assets/home-check.png') : require('@/assets/home.png')")
+        van-tabbar-item(replace to="/about")
+          span 关于
+          template(#icon="props")
+            img(:src="props.active ? require('@/assets/about-check.png') : require('@/assets/about.png')")
+        van-tabbar-item(replace to="/my")
+          span 我的
+          template(#icon="props")
+            img(:src="props.active ? require('@/assets/my-check.png') : require('@/assets/my.png')")
 </template>
 
 <script>
@@ -103,16 +107,32 @@ html,body,#app {
 img {
   width 100%
 }
-.van-tabbar {
+.nav-bar {
+  width 100%
   min-height auto!important
-  height .45rem!important
-  padding-top .03rem
-  img {
-    width .2rem
-    height .2rem!important
+  height .42rem!important
+  .van-nav-bar {
+    position fixed!important
+    width 100%
+    min-height auto!important
+    height .42rem!important
+    z-index 9!important
   }
-  .van-tabbar-item__text {
-    margin-top .02rem!important
+}
+.tab-bar {
+  min-height auto!important
+  height .48rem!important
+  .van-tabbar {
+    min-height auto!important
+    height .48rem!important
+    z-index 9!important
+    img {
+      width .2rem
+      height .2rem!important
+    }
+    .van-tabbar-item__text {
+      margin-top .02rem!important
+    }
   }
 }
 .iframe-wrap {

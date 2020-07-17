@@ -39,6 +39,7 @@ export default {
 <style scoped lang="stylus">
 
 .home {
+  touch-action pan-y!important
   .top {
     width 1rem
     margin 0 auto

@@ -23,6 +23,7 @@ export default {
 <style scoped lang="stylus">
 
 .my {
+  touch-action pan-y!important
   .name {
     padding .2rem
   }

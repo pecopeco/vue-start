@@ -79,6 +79,7 @@ export default {
 <style scoped lang="stylus">
 
 .about {
+  touch-action pan-y!important
   .btn {
     margin-top .2rem
   }
