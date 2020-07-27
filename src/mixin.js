@@ -184,6 +184,7 @@ export default {
     // 表单验证
     validate (arr) {
       let err = {}
+      arr.reverse()
       arr.some((item) => {
         // 数字转换字符串
         if (typeof (item.key) === 'number') {
