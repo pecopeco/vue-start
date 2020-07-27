@@ -74,7 +74,8 @@ export default {
 </script>
 
 <style lang="stylus">
-  
+@import "~@/animate.css"
+
 html,body,#app {
   margin 0
   height 100%
@@ -103,6 +104,9 @@ html,body,#app {
 }
 img {
   width 100%
+}
+.animated {
+  animation-duration 200ms
 }
 .nav-bar {
   width 100%
