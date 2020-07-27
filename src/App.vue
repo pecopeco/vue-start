@@ -105,8 +105,8 @@ html,body,#app {
 img {
   width 100%
 }
-.animated {
-  animation-duration 200ms
+.fadeIn {
+  animation-duration 100ms
 }
 .nav-bar {
   width 100%
