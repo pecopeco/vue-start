@@ -98,6 +98,7 @@ html,body,#app {
 }
 .gray {
   color fontGray
+  filter grayscale(100%)
 }
 .bold {
   font-weight bold
