@@ -10,6 +10,7 @@ import VueTouch from 'vue-touch'
 
 import navBar from '@/components/navBar'
 import loading from '@/components/loading'
+import toast from '@/components/toast'
 
 Vue.config.productionTip = false
 
@@ -17,6 +18,7 @@ Vue.use(VueTouch, {name: 'v-touch'})
 
 Vue.component('navBar', navBar)
 Vue.component('loading', loading)
+Vue.component('toast', toast)
 
 Vue.mixin(mixin)
 Vue.use(Vant)

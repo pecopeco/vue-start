@@ -7,6 +7,7 @@
     .time {{time | formatTime('-', '-', '', true, true)}}
     van-button(@click="go('/detail')") 详情
     loading
+    .text 详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情
 </template>
 
 <script>
@@ -41,6 +42,12 @@ export default {
 
 .home {
   touch-action pan-y!important
+  &:after {
+    content ''
+    display flex
+    width 100%
+    height .48rem
+  }
   .top {
     width 1rem
     margin 0 auto

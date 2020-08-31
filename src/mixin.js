@@ -17,6 +17,8 @@ export default {
   },
   data () {
     return {
+      animateTimer: '',
+      statusTimer: ''
     }
   },
   filters: {
@@ -44,6 +46,32 @@ export default {
     },
     goBack (key = -1) {
       this.$router.go(key)
+    },
+    toast (text, delay = 1200) {
+      if (this.toastObj.showToast || this.animateTimer || this.statusTimer) {
+        clearTimeout(this.animateTimer)
+        clearTimeout(this.statusTimer)
+        this.animateTimer = ''
+        this.statusTimer = ''
+        store.dispatch('setToastClass', 'zoomOut')
+        setTimeout(() => {
+          this.setToats(text, delay)
+        }, 200)
+      } else {
+        this.setToats(text, delay)
+      }
+    },
+    setToats (text, delay) {
+      store.dispatch('setToastClass', 'bounceIn')
+      store.dispatch('setToastText', text)
+      store.dispatch('setToastStatus', true)
+      this.animateTimer = setTimeout(() => {
+        store.dispatch('setToastClass', 'zoomOut')
+        this.statusTimer = setTimeout(() => {
+          store.dispatch('setToastClass', '')
+          store.dispatch('setToastStatus', false)
+        }, 400)
+      }, delay)
     },
     http (url, form = {}, type) {
       // 拦截重复请求
@@ -297,6 +325,9 @@ export default {
     },
     checkTab () {
       return this.$store.state.checkTab
+    },
+    toastObj () {
+      return this.$store.state.toastObj
     }
   },
   watch: {

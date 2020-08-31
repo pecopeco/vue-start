@@ -7,7 +7,12 @@ export default new Vuex.Store({
   state: {
     userInfo: '',
     showBtn: true,  // 键盘弹出fixed定位按钮隐藏
-    transitionName: 'slide-left'
+    transitionName: 'slide-left',
+    toastObj: {
+      showToast: false,
+      toastText: '',
+      toastClass: ''
+    }
   },
   actions: {
     setUser: ({ commit }, data) => {
@@ -18,6 +23,15 @@ export default new Vuex.Store({
     },
     setSlide: ({ commit }, data) => {
       commit('setSlide', data)
+    },
+    setToastStatus: ({ commit }, data) => {
+      commit('setToastStatus', data)
+    },
+    setToastText: ({ commit }, data) => {
+      commit('setToastText', data)
+    },
+    setToastClass: ({ commit }, data) => {
+      commit('setToastClass', data)
     }
   },
   mutations: {
@@ -29,6 +43,15 @@ export default new Vuex.Store({
     },
     setSlide (state, data) {
       state.transitionName = data
+    },
+    setToastStatus (state, data) {
+      state.toastObj.showToast = data
+    },
+    setToastText (state, data) {
+      state.toastObj.toastText = data
+    },
+    setToastClass (state, data) {
+      state.toastObj.toastClass = data
     }
   }
 })

@@ -3,7 +3,7 @@
     transition(:name="transitionName")
       router-view
     .tab-bar(v-if="$route.name === 'home' || $route.name === 'about' || $route.name === 'my'")
-      van-tabbar(route active-color="#1296db")
+      van-tabbar(route placeholder active-color="#1296db")
         van-tabbar-item(replace to="/")
           span 首页
           template(#icon="props")
@@ -131,6 +131,10 @@ img {
   }
 }
 .tab-bar {
+  position fixed
+  left 0
+  bottom 0
+  z-index 9
   min-height auto!important
   height .48rem!important
   .van-tabbar {

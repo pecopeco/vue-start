@@ -72,6 +72,12 @@ export default {
 
 .about {
   touch-action pan-y!important
+  &:after {
+    content ''
+    display flex
+    width 100%
+    height .48rem
+  }
   .btn {
     margin-top .2rem
   }
