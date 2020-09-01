@@ -30,8 +30,8 @@ export default {
 .toast {
   position fixed
   top 40%
-  left 0
-  width 100%
+  left calc(50% - 90px)
+  width 180px
   z-index 99
   animation-duration .3s
   .toast-content {
