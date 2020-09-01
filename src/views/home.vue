@@ -4,7 +4,7 @@
       img(src="@/assets/logo.png" @click="getData")
       img(:src="info.avatar || require('@/assets/default-avatar.png')" @error="resetImgUrl")
     .text {{info.text}}
-    .time {{time | formatTime('-', '-', '', true, true)}}
+    .time {{time | formatTime('-', '-')}}
     van-button(@click="go('/detail')") 详情
     loading
     .text 详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情
@@ -22,7 +22,7 @@ export default {
         avatar: '111',
         text: '222'
       },
-      time: 1566274478
+      time: 1566274478000
     }
   },
   methods: {

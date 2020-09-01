@@ -19,6 +19,7 @@
       clearable
     )
     van-button.btn(type="primary" @click="submit") 提交
+    toast
 </template>
 
 <script>
@@ -47,7 +48,7 @@ export default {
         {key: this.phone, type: 'phone', name: '手机号'}
       ])
       if (this.err) {
-        return this.$toast(this.err.msg)
+        return this.toast(this.err.msg)
       }
       this.loading = true
       const res = await this.http.post('/xxx', {
@@ -56,7 +57,7 @@ export default {
       })
       this.loading = false
       if (res) {
-        this.$toast('提交成功')
+        this.toast('提交成功')
       }
     }
   },
