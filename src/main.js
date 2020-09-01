@@ -29,8 +29,6 @@ let utils = {...mixin.methods}
 utils.setHttp()
 
 router.beforeEach(async (to, from, next) => {
-  // 重置toast
-  store.dispatch('setToastStatus', false)
   // 设置动画翻页方向
   utils.setSlide(to.name, from.name)
   next()

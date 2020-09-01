@@ -19,7 +19,7 @@
       clearable
     )
     van-button.btn(type="primary" @click="submit") 提交
-    toast
+    toast(ref="toast")
 </template>
 
 <script>
