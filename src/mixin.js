@@ -47,8 +47,8 @@ export default {
     goBack (key = -1) {
       this.$router.go(key)
     },
-    toast (text) {
-      this.$refs.toast.toast(text)
+    toast (text, delay = 1500) {
+      this.$toast({message: text, duration: delay})
     },
     http (url, form = {}, type) {
       // 拦截重复请求
@@ -214,26 +214,31 @@ export default {
         // 验证非空
         if (!item.key || item.key.match(/^[ ]+$/)) {
           err[item.type] = true
-          return err.msg = '请填写' + item.name
+          err.msg = '请填写' + item.name
+          return true
         }
         // 验证姓名
         if (item.type === 'name' && (!/^[\u4e00-\u9fa5]+$/.test(item.key) || item.key.length < 2)) {
           err[item.type] = true
-          return err.msg = '请输入正确的' + item.name
+          err.msg = '请输入正确的' + item.name
+          return true
         }
         // 验证手机号
         if (item.type === 'phone' && !(item.key.length === 11 && /^((13|14|15|17|18|19)[0-9]{1}\d{8})$/.test(item.key))) {
           err[item.type] = true
-          return err.msg = '请输入正确的' + item.name
+          err.msg = '请输入正确的' + item.name
+          return true
         }
         // 验证身份证号
         if (item.type === 'idCard' && !/^\d{6}(19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(item.key)) {
           err[item.type] = true
-          return err.msg = '请输入正确的' + item.name
+          err.msg = '请输入正确的' + item.name
+          return true
         }
         // 验证金额
         if (item.type === 'price' && ((!Number.isFinite(Number(item.key)) || Number(item.key) <= 0) || (item.key.split('.')[1] && item.key.split('.')[1].length > 2))) {
-          err = '请输入正确的' + item.name
+          err.msg = '请输入正确的' + item.name
+          return true
         }
       })
       return Object.keys(err).length ? err : ''

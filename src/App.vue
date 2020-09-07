@@ -93,6 +93,14 @@ html,body,#app {
     min-height 100%
   }
 }
+.home,.about,.my {
+  &:after {
+    content ''
+    display flex
+    width 100%
+    height .48rem
+  }
+}
 .theme {
   color theme
 }

@@ -24,12 +24,6 @@ export default {
 
 .my {
   touch-action pan-y!important
-  &:after {
-    content ''
-    display flex
-    width 100%
-    height .48rem
-  }
   .name {
     padding .2rem
   }

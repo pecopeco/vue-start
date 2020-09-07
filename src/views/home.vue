@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     async getData () {
-      this.$toast('loading...')
+      this.toast('loading...')
       this.info = await this.http.get('/search', {id: 1})
     }
   },
@@ -42,12 +42,6 @@ export default {
 
 .home {
   touch-action pan-y!important
-  &:after {
-    content ''
-    display flex
-    width 100%
-    height .48rem
-  }
   .top {
     width 1rem
     margin 0 auto

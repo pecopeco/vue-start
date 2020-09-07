@@ -19,7 +19,6 @@
       clearable
     )
     van-button.btn(type="primary" @click="submit") 提交
-    toast(ref="toast")
 </template>
 
 <script>
@@ -73,12 +72,6 @@ export default {
 
 .about {
   touch-action pan-y!important
-  &:after {
-    content ''
-    display flex
-    width 100%
-    height .48rem
-  }
   .btn {
     margin-top .2rem
   }
