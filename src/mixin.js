@@ -240,6 +240,12 @@ export default {
           err.msg = '请输入正确的' + item.name
           return true
         }
+        // 验证密码必须为数字或字母
+        if (item.type === 'password' && ! /^[0-9a-zA-Z]+$/.test(item.key)) {
+          err[item.type] = true
+          err.msg = '密码必须包含数字或字母'
+          return true
+        }
       })
       return Object.keys(err).length ? err : ''
     },
