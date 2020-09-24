@@ -241,7 +241,7 @@ export default {
           return true
         }
         // 验证密码必须为数字或字母
-        if (item.type === 'password' && ! /^[0-9a-zA-Z]+$/.test(item.key)) {
+        if (item.type === 'password' && !/^[0-9a-zA-Z]+$/.test(item.key)) {
           err[item.type] = true
           err.msg = '密码必须包含数字或字母'
           return true
