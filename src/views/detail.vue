@@ -2,6 +2,7 @@
   .detail
     nav-bar(title="详情")
     .text 详情
+    .time {{day().format('YYYY年MM月DD HH:mm:ss')}}
 </template>
 
 <script>

@@ -4,7 +4,7 @@
       img(src="@/assets/logo.png" @click="getData")
       img(:src="info.avatar || require('@/assets/default-avatar.png')" @error="resetImgUrl")
     .text {{info.text}}
-    .time {{time | formatTime('-', '-')}}
+    .time {{day().format('YYYY年MM月DD HH:mm:ss')}}
     van-button(@click="go('/detail')") 详情
     loading
     .text 详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情

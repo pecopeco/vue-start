@@ -114,6 +114,9 @@ html,body,#app {
 img {
   width 100%
 }
+.btn {
+  padding 0!important
+}
 .fadeIn {
   animation-duration 100ms
 }
