@@ -271,7 +271,7 @@ export default {
       return arrTarget
     },
     // 本地存储超过3m清空
-    keepStorage () {
+    clearStorage () {
       let size = 0
       for (let item in localStorage) {  
         if (localStorage.hasOwnProperty(item)) {  
